@@ -6,33 +6,37 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.res.stringResource
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
-import androidx.navigation.NavOptions
 import com.kamabd.exchangeratesapp.R
 import com.kamabd.exchangeratesapp.navigation.Screen
 import com.kamabd.exchangeratesapp.ui.component.LoadingContent
 import com.kamabd.exchangeratesapp.ui.features.currencies.content.CurrenciesContent
 import com.kamabd.exchangeratesapp.ui.features.currencies.content.CurrenciesHeaderContent
+import com.kamabd.exchangeratesapp.ui.features.currencies.data.defaultBaseCurrency
+import com.kamabd.exchangeratesapp.ui.features.filters.data.SortBy
+import com.kamabd.logger.AppLogger
 
 @Composable
 fun CurrenciesScreen(
     navController: NavController,
+    selectedSortBy: SortBy,
     vm: CurrenciesViewModel = hiltViewModel()
 ) {
+    vm.setSelectedSortBy(selectedSortBy)
+    val state = vm.uiState.collectAsState(initial = CurrenciesState.Idle).value
+    val baseCurrency = (state as? CurrenciesState.Success)?.baseCurrency ?: defaultBaseCurrency
+    AppLogger.logD("init screen: $baseCurrency")
     Column {
         CurrenciesHeaderContent(
             title = stringResource(id = R.string.currencies_title),
             onBaseCurrencySelected = vm::onBaseCurrencySelected,
             onOpenFiltersClicked = {
-                val navOptions = NavOptions.Builder()
-                    .setEnterAnim(R.anim.scale_fade_in)
-                    .setExitAnim(R.anim.scale_fade_out)
-                    .setPopEnterAnim(R.anim.scale_fade_in)
-                    .setPopExitAnim(R.anim.scale_fade_out)
-                    .build()
-                navController.navigate(Screen.Filters.route, navOptions)
+                navController.currentBackStackEntry
+                    ?.arguments
+                    ?.putParcelable(Screen.Filters.objectName, selectedSortBy)
+                navController.navigate(Screen.Filters.route.plus("/${selectedSortBy}"))
             }
         )
-        when (val state = vm.uiState.collectAsState(initial = CurrenciesState.Idle).value) {
+        when (state) {
             is CurrenciesState.Loading -> {
                 LoadingContent()
             }

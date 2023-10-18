@@ -17,12 +17,12 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.saveable.rememberSaveable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.kamabd.exchangeratesapp.R
 import com.kamabd.exchangeratesapp.ui.features.currencies.data.defaultBaseCurrency
@@ -42,7 +42,7 @@ fun CurrenciesHeaderContent(
 ) {
     val menuItems = defaultCurrencySymbols
     val expanded = remember { mutableStateOf(false) }
-    val selectedItem = remember { mutableStateOf(defaultBaseCurrency) }
+    val selectedItem = rememberSaveable { mutableStateOf(defaultBaseCurrency) }
     Column(
         modifier = modifier
             .background(localColors.bgColors.bgColorHeader)
@@ -79,6 +79,7 @@ fun CurrenciesHeaderContent(
                     )
             ) {
                 Row(
+                    verticalAlignment = Alignment.CenterVertically,
                     modifier = Modifier
                         .fillMaxWidth(1f)
                 ) {

@@ -1,6 +1,7 @@
 package com.kamabd.exchangeratesapp.ui.features.currencies
 
 import com.kamabd.domain.CurrenciesLatestInfo
+import com.kamabd.exchangeratesapp.ui.features.filters.data.SortBy
 
 sealed class CurrenciesState {
 
@@ -10,6 +11,7 @@ sealed class CurrenciesState {
 
     data class Success(
         val data: CurrenciesLatestInfo,
-        val baseCurrency: String
+        val baseCurrency: String,
+        val sortBy: SortBy,
     ) : CurrenciesState()
 }

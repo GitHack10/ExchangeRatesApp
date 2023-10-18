@@ -1,6 +1,7 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
+    id("org.jetbrains.kotlin.plugin.parcelize")
     id("com.google.devtools.ksp")
     id("dagger.hilt.android.plugin")
 }
@@ -66,21 +67,28 @@ dependencies {
     implementation(project(":logger"))
     implementation(project(":i_currencies"))
 
+    // android
     implementation("androidx.core:core-ktx:${Version.ktx_version}")
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.6.2")
+    implementation("androidx.appcompat:appcompat:1.6.1")
+    implementation("com.google.accompanist:accompanist-navigation-animation:0.32.0")
+    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.0")
+
+    // compose ui
     implementation("androidx.activity:activity-compose:1.8.0")
     implementation(platform("androidx.compose:compose-bom:2023.03.00"))
     implementation("androidx.compose.ui:ui")
     implementation("androidx.compose.ui:ui-graphics")
     implementation("androidx.compose.ui:ui-tooling-preview")
-    implementation("androidx.appcompat:appcompat:1.6.1")
     implementation("androidx.compose.ui:ui:${Version.compose_version}")
     implementation("androidx.compose.material:material:${Version.compose_version}")
     implementation("androidx.compose.material:material-icons-extended:${Version.compose_version}")
     implementation("androidx.compose.ui:ui-tooling-preview:${Version.compose_version}")
+    implementation("com.google.accompanist:accompanist-systemuicontroller:0.27.0")
+
+    // lifecycle
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.6.2")
-    implementation("androidx.navigation:navigation-runtime-ktx:2.7.4")
-    implementation("com.google.accompanist:accompanist-navigation-animation:0.32.0")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.6.2")
 
     // compose navigation
     implementation("androidx.navigation:navigation-compose:2.7.4")

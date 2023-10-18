@@ -8,4 +8,13 @@
     <string name="filters_title">Filters</string>
     <string name="favorites_empty">Favorites list is empty</string>
     <string name="favorites_add_currency">Add currency</string>
+
+    <!-- region filters -->
+    <string name="filters_sort_by_title">Sort by</string>
+    <string name="filters_sort_by_code_asc">Code A-Z</string>
+    <string name="filters_sort_by_code_desc">Code Z-A</string>
+    <string name="filters_sort_by_quote_asc">Quote Asc.</string>
+    <string name="filters_sort_by_quote_desc">Quote Desc.</string>
+    <string name="filters_sort_by_apply_btn">Apply</string>
+    <!-- endregion -->
 </resources>

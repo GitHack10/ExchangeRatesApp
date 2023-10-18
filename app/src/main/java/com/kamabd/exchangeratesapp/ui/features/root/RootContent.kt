@@ -14,7 +14,6 @@ import androidx.compose.material.Text
 import androidx.compose.material.rememberScaffoldState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
@@ -29,10 +28,6 @@ import com.kamabd.exchangeratesapp.R
 import com.kamabd.exchangeratesapp.navigation.Navigation
 import com.kamabd.exchangeratesapp.navigation.Screen
 import com.kamabd.exchangeratesapp.navigation.currentRoute
-import com.kamabd.exchangeratesapp.navigation.navigationTitle
-import com.kamabd.exchangeratesapp.ui.component.AppBarWithArrow
-import com.kamabd.exchangeratesapp.ui.features.currencies.content.CurrenciesHeaderContent
-import com.kamabd.exchangeratesapp.ui.features.favorites.content.FavoritesHeaderContent
 import com.kamabd.exchangeratesapp.utils.networkconnection.ConnectionState
 import com.kamabd.exchangeratesapp.utils.networkconnection.connectivityState
 import com.kamabd.uikit.theme.impl.localColors
@@ -46,35 +41,8 @@ fun RootContent(
 ) {
     val connection by connectivityState()
     val isConnected = connection === ConnectionState.Available
-    val openFiltersClickAction: () -> Unit = {
-        navController.navigate(Screen.Filters.route)
-    }
     Scaffold(
         scaffoldState = scaffoldState,
-//        topBar = {
-//            val title = navigationTitle(navController)
-//            when (currentRoute(navController)) {
-//                Screen.Currencies.route -> {
-//                    CurrenciesHeaderContent(
-//                        title = title,
-//                        onOpenFiltersClicked = openFiltersClickAction,
-//                        onBaseCurrencySelected = {
-//
-//                        }
-//                    )
-//                }
-//                Screen.Favorites.route -> {
-//                    FavoritesHeaderContent(
-//                        title = title
-//                    )
-//                }
-//                else -> {
-//                    AppBarWithArrow(title) {
-//                        navController.popBackStack()
-//                    }
-//                }
-//            }
-//        },
         bottomBar = {
             when (currentRoute(navController)) {
                 Screen.Currencies.route,

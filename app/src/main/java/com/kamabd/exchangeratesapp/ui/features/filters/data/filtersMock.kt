@@ -1,21 +1,9 @@
 package com.kamabd.exchangeratesapp.ui.features.filters.data
 
-val filterMockItems: List<FilterItem>
+val filterMockItems: List<SortBy>
     get() = listOf(
-        FilterItem(
-            sortType = "code",
-            sortBy = "asc"
-        ),
-        FilterItem(
-            sortType = "code",
-            sortBy = "desc"
-        ),
-        FilterItem(
-            sortType = "quote",
-            sortBy = "asc"
-        ),
-        FilterItem(
-            sortType = "quote",
-            sortBy = "desc"
-        )
+        SortBy.CodeAsc,
+        SortBy.CodeDesc,
+        SortBy.QuoteAsc,
+        SortBy.QuoteDesc,
     )

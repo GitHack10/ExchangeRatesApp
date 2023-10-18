@@ -27,7 +27,15 @@ fun FavoritesScreen(
             is FavoritesState.Empty -> {
                 FavoritesEmptyContent(
                     onAddCurrencyClicked = {
-                        navController.navigate(Screen.CurrenciesNav.route)
+                        navController.navigate(Screen.Currencies.route) {
+                            navController.graph.startDestinationRoute?.let { route ->
+                                popUpTo(route) {
+                                    saveState = true
+                                }
+                            }
+                            launchSingleTop = true
+                            restoreState = true
+                        }
                     }
                 )
             }

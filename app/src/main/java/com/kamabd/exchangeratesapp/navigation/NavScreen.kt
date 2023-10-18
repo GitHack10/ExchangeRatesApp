@@ -42,6 +42,8 @@ sealed class Screen(
     object Filters : Screen(
         route = "filters_screen",
         title = R.string.filters_title,
+        objectName = "sortBy",
+        objectPath = "/{sortBy}",
     )
 
     // Bottom Navigation
