@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">ExchangeRatesApp</string>
+
+    <string name="common_no_internet_error">Connection error</string>
+
+    <string name="currencies_title">Currencies</string>
+    <string name="favorites_title">Favorites</string>
+    <string name="filters_title">Filters</string>
+    <string name="favorites_empty">Favorites list is empty</string>
+    <string name="favorites_add_currency">Add currency</string>
+</resources>
