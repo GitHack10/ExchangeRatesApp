@@ -3,12 +3,12 @@ package com.kamabd.exchangeratesapp.di
 import com.google.gson.Gson
 import com.kamabd.base.coroutines.DefaultDispatchersProvider
 import com.kamabd.exchangeratesapp.BuildConfig
-import com.kamabd.exchangeratesapp.data.remote.ApiKeyInterceptor
 import com.kamabd.i_currencies.api.ApiCurrencies
 import com.kamabd.network.error_mapper.DefaultErrorMapper
 import com.kamabd.network.result_handler.RequestResultHandler
 import com.kamabd.network.result_handler.RequestResultHandlerDelegate
 import com.kamabd.network.result_handler.RequestResultHandlerDelegateDependencies
+import com.kamabd.network.retrofit_ext.ApiKeyInterceptor
 import com.kamabd.network.use_case.DefaultRequestDataDelegate
 import com.kamabd.network.use_case.RequestDataDelegate
 import dagger.Module

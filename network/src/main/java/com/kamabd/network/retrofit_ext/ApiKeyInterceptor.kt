@@ -1,4 +1,4 @@
-package com.kamabd.exchangeratesapp.data.remote
+package com.kamabd.network.retrofit_ext
 
 import okhttp3.Interceptor
 import okhttp3.Request
