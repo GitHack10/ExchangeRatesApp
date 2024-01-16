@@ -1,6 +1,9 @@
 package com.kamabd.base.coroutines
 
 inline fun <T : Any?> wrapResult(block: () -> T): RequestResult<T> {
+    runCatching {
+
+    }
     return try {
         RequestResult.Success(block())
     } catch (ex: Throwable) {

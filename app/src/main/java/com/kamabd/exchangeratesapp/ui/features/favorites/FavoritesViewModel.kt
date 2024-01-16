@@ -5,6 +5,7 @@ import com.kamabd.domain.CurrencyInfo
 import com.kamabd.i_currencies.use_case.RemoveCurrencyFromFavoritesUseCase
 import com.kamabd.i_currencies.use_case.SubscribeToFavoriteCurrenciesUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
@@ -43,5 +44,9 @@ class FavoritesViewModel @Inject constructor(
                 )
             )
         }
+    }
+
+    override fun showErrorMessage(error: Throwable) {
+
     }
 }
